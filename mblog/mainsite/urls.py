@@ -5,5 +5,6 @@ from . import views
 
 urlpatterns = [
     url(r'^homepage/$', views.homepage),
-    # url(r'^$', mainsite)
+    url(r'^homepagetem/$', views.homepage_tem),
+    url(r'^post/(\w+)$', views.show_post),
 ]

@@ -5,10 +5,27 @@
 {% endblock %}
 {% block content %}
 {% for post in posts %}
+<div class="panpel panpel-default">
+    <div class="panpel-heading">
 <p style="font-family: 微软雅黑;
 ">
     <a href="/post/{{ post.slug }}"> {{post.title}}</a>
 </p>
+</div>
+    <div class="panpel-body" style="background-color: powderblue">
+    <p>
+        <!-- truncatechars 显示指定个数的数字 -->
+        {{post.body | safe }}
+    </p>
+    </div>
+    <div class="panpel-footer" style="background-color: rosybrown">
+        <p>
+            {{post.pub_date | date:'Y-m-d, h:m:s'}}
+        </p>
+    </div>
+
+</div>
+
 <!--<p style="font-family: 微软雅黑;font-size:12pt;font-weight: pink;-->
 <!--">-->
 <!--{{post.body}}-->

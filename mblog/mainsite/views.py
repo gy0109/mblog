@@ -23,7 +23,7 @@ def homepage_tem(request):
     """获取所有文章 并通过django传递到客户端"""
     template = get_template('index.html')
     posts = Post.objects.all()
-    now = datetime.now()
+    now = datetime.now()                # 模板设置其他回复 若忘记传  有其他进行代替
     html = template.render(locals())
     return HttpResponse(html)
 
@@ -32,7 +32,7 @@ def homepage_tem(request):
 def show_post(request, slug):
     """获取所有文章 并通过django传递到客户端"""
     template = get_template('post.html')        # 获取模板  要提供模板所需字段
-    now = datetime.now()
+    now = datetime.now()                        # 模板设置其他回复 若忘记传  有其他进行代替
     try:
         posts = Post.objects.get(slug=slug)     # 获取slug字段的text
         if posts != None:

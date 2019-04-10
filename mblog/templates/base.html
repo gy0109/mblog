@@ -3,13 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %} {% endblock %}</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
 </head>
 <body>
-    {% include 'header.html' %}
-    {% block headmessage %}{% endblock %}
-    <hr>
-    {% block content %}{% endblock %}
-    <hr>
-    {% include 'footer.html' %}
+    <div class="container-fluid">
+        {% include 'header.html' %}
+        <div class="row">
+            <div class="col-sm-2 col-md-2">
+            <div class="panpel panpel-default">
+                <div class="panpel-heading">
+                    <h3>
+                        MENU
+                    </h3>
+                </div>
+                <div class="panpel-body">
+                    <div class='list-group'>
+                        <a href="/" class="list-group-item">HOME</a>
+                        <a href="http://tar.so/news" class="list-group-item">古诗词</a>
+                        <a href="http://drho.tw/news" class="list-group-item">名词佳句</a>
+                    </div>
+
+                </div>
+            </div>
+            </div>
+
+        
+        <div class="col-sm-7 col-md-7">
+            <div class="panpel panpel-default">
+            <div class="panpel panpel-heading">
+                {% block headmessage %} {% endblock %}
+            </div>
+            <hr>
+            <div class="panpel-boby">
+                {% block content %} {% endblock %}
+            </div>
+            <hr>
+            <div class="panpel-footer">
+                {% include 'footer.html' %}
+            </div>
+        </div>
+    </div>
+
+
+        <div class="col-sm-3 col-md-3">
+            <div class="panpel panpel-default">
+                <div class="panpel-heading">
+                    <h3>
+                        MENU
+                    </h3>
+                </div>
+                <div class="panpel-body">
+                    <div class='list-group'>
+                        <a href="/" class="list-group-item">HOME</a>
+                        <a href="http://tar.so/news" class="list-group-item">渐入佳境</a>
+                        <a href="http://drho.tw/news" class="list-group-item">云里雾里</a>
+                    </div>
+        
+                </div>
+            </div>
+        </div>
+        
+    </div>
+         </div>
+   
 </body>
 </html>

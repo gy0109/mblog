@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 {% block title %}欢迎光临我的博客{% endblock %}
 {% block headmessage %}
-<h3 style="font-family: 微软雅黑;">本站文章列表</h3>
+<h5 style="font-family: 微软雅黑;background-color: salmon">本站文章列表</h5>
 {% endblock %}
 {% block content %}
 {% for post in posts %}
-<p style="font-family: 微软雅黑;font-size:16pt;font-weight: bold;
+<p style="font-family: 微软雅黑;
 ">
     <a href="/post/{{ post.slug }}"> {{post.title}}</a>
 </p>

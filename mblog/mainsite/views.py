@@ -4,7 +4,7 @@ from datetime import datetime
 
 from django.template.loader import get_template
 
-from .models import Post
+from .models import Post, Phone
 # Create your views here.
 
 
@@ -35,14 +35,25 @@ def show_post(request, slug):
     now = datetime.now()                        # 模板设置其他回复 若忘记传  有其他进行代替
     try:
         posts = Post.objects.get(slug=slug)     # 获取slug字段的text
-        if posts != None:
+        if posts is not None:
             html = template.render(locals())
             return HttpResponse(html)
-
-    except:
+    except Exception:
         return redirect('/homepagetem/')        # 回首页
 
 
+def about(request):
+    template = get_template('about.html')
+    return HttpResponse(template.render(locals()))
 
+
+def phone(request):
+    template = get_template('phone.html')
+    phones = Phone.objects.all()
+    # for p in phones:
+    #     name = p.name
+    #     price = p.price
+    #     reper = p.reper
+    return HttpResponse(template.render(locals()))
 
 

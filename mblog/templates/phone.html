@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>中古手机列表</title>
+</head>
+<body>
+<h2>以下是本店售卖的二手中古手机手机列表</h2>
+<hr>
+<table  width="400" border="1" bgcolor="aqua"  style="height:300px;">
+    <tr><td>产品</td><td>售价</td><td>库存量</td></tr>
+    {% for p in phones %}
+        <tr>
+            <td>{{ p.name }}</td>
+            <td>{{ p.price }}</td>
+            <td>{{p.reper}}</td>
+        </tr>
+    {% endfor %}
+</table>
+</body>
+</html>

@@ -15,7 +15,7 @@
     <div class="panpel-body" style="background-color: powderblue">
     <p>
         <!-- truncatechars 显示指定个数的数字 -->
-        {{post.body | safe }}
+        {{post.abstract | truncatechars:60 }}
     </p>
     </div>
     <div class="panpel-footer" style="background-color: rosybrown">

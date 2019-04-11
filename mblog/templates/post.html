@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load markdown_deux_tags %}
 {% block title %}{{posts.title}}-文学天地{% endblock %}
 {% block headmessage %}
     <h1 style="font-family: 微软雅黑;">{{posts.title}}</h1>
@@ -7,7 +8,7 @@
     {% block content%}
     <p style="font-family: 微软雅黑;
 ">
-         {{posts.body}}</a>
+         {{posts.body | safe }}</a>
     </p>
     {% endblock %}
 

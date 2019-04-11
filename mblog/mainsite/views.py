@@ -1,7 +1,8 @@
-from django.shortcuts import render, redirect
-from django.http import HttpResponse
-from datetime import datetime
+import random
 
+from django.shortcuts import render, redirect
+from django.http import HttpResponse, Http404
+from datetime import datetime
 from django.template.loader import get_template
 
 from .models import Post, Phone
@@ -47,13 +48,29 @@ def about(request):
     return HttpResponse(template.render(locals()))
 
 
+def about_tem(request):
+    template = get_template('about_tem.html')
+    quotes = ['今日事今日毕',
+              '少壮不努力，老大徒伤悲',
+              '知识就是力量',
+              '一个人的知识可以改变命运']
+    return HttpResponse(template.render({'quotes': random.choice(quotes)}))
+
+
 def phone(request):
     template = get_template('phone.html')
     phones = Phone.objects.all()
-    # for p in phones:
-    #     name = p.name
-    #     price = p.price
-    #     reper = p.reper
     return HttpResponse(template.render(locals()))
+
+
+def phone_sku(request, sku):
+
+    try:
+        p = Phone.objects.get(sku=sku)
+    except Phone.DoesNotExist:
+        raise Http404('找不到指定的编号')
+    template = get_template('phone_sku.html')
+    # return HttpResponse(template.render(locals()))
+    return HttpResponse(template.render({'p': p}))
 
 

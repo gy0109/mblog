@@ -6,10 +6,9 @@ from . import views
 urlpatterns = [
     url(r'^homepage/$', views.homepage),
     url(r'^homepagetem/$', views.homepage_tem),
-    url(r'^post/(\w+)$', views.show_post),
+    url(r'^post/(\w+)/$', views.show_post),
     url(r'^about/$', views.about),
-    url(r'^phone/', views.phone),
+    url(r'^abouttem/$', views.about_tem),
+    url(r'^phone/$', views.phone),
+    url(r'^phone/([0-9A-Za-z]+)/$', views.phone_sku),
 ]
-
-
-# Django架站的16堂课  -- 120
